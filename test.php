@@ -10,4 +10,5 @@ $sender = new Zabbix_Sender($conf);
 
 // send message(s)
 $sender->send(new Zabbix_Message('system.status', 1));
+print( $sender->send(new Zabbix_Message('messages.processed', 2, Zabbix_Message::VERSION_1_4)) );
 
