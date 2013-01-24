@@ -1,4 +1,4 @@
-PHP implementation of the 1.8 zabbix sender protocol
+PHP implementation of the 1.4 and 1.8 zabbix sender protocols
 
 http://www.zabbix.com/wiki/doc/tech/proto/zabbixsenderprotocol
 
