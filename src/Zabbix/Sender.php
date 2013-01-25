@@ -63,13 +63,20 @@ class Zabbix_Sender
      */
     private function connect_and_send($target, $raw_message)
     {
-      $fp = stream_socket_client($target, $errno, $errstr, 10);
-      if(!$fp)
-      {
-        return FALSE;
+      try {
+        $fp = stream_socket_client($target, $errno = -1, $errstr = '', 5);
+        
+        if(!$fp)
+        {
+          return FALSE;
+        }
+        $result = fwrite($fp, $raw_message);
+        fclose($fp);
+        return $result;
+        
+      } catch(Exception $e) {
+          return FALSE;
       }
-      $result = fwrite($fp, $raw_message);
-      fclose($fp);
-      return $result;
     }
 }
+
